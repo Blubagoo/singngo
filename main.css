@@ -1,0 +1,8 @@
+body {
+	box-sizing: border-box;
+	background-color: #3f4651;
+}
+.images {
+	width: 90px;
+	height: auto;
+}

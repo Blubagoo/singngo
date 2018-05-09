@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Artist lyrics and showtimes</title>
+	<meta name="viewport" content="width=device-width">
+	<meta name="description" content="This app aims to provide you with lyrics for a song and upcoming artist events">
+	<meta name="keywords" content="lyric generator, artist events">
+	<link href="main.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<header role="banner">
+		<h2 class="banner">Search an artist's name to begin.</h2>
+	</header>
+	<main role="main">
+		<div id="container">
+			<div id="search-area">
+				<h3>Thanks for checking out Sing'n Go! Enter in your favorite artist's song. We will grab you lyrics while you jam on your phone and tell you when the next shows are!</h3>
+				<form role="form" id="search-form">
+					<fieldset>
+						<legend id="legend">Search Data
+							<label for="artist">Artist</label>
+							<input type="text" id="artist" placeholder="Queens of the Stone Age" name="artist" required>
+							<label for="title">Title</label>
+							<input type="text" id="title" placeholder="No One Knows" name="title" required>
+							<button type="submit" id="search-button">Let's Begin!</button>
+						</legend>
+					</fieldset>
+				</form>
+			</div>
+
+
+
+			<div id="lyric-area">
+				
+			</div>
+
+
+
+			<div id="event-area">
+			
+			</div>
+
+
+
+
+		</div>
+	</main>
+	<footer role="contentinfo">Powered By <a href="https://www.ticketmaster.com" class="links">TicketMaster</a>, and 
+		<a href="https://lyricsovh.docs.apiary.io/#reference/0/lyrics-of-a-song/search?console=1" class="links">LyricsOVH</a>.
+
+
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<script src="app.js"></script>
+</body>
+</html>
