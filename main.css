@@ -48,7 +48,9 @@ label {
 
 	flex-wrap: wrap;
 }
-
+form {
+	opacity: 1.0;
+}
 #search-area {
 	background-color: black;
 	opacity: 0.8;
@@ -96,6 +98,7 @@ label {
 
 }
 #search-area input {
+
 	margin: 20px 0;
 }
 footer {
@@ -110,7 +113,8 @@ footer {
 
 }
 .lyric-info{
-	font-size: 35px;
+	font-size: 20px;
+	
 }
 .event-info {
 	font-size: 20px;
