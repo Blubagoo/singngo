@@ -13,6 +13,19 @@ fieldset {
 .images {
 	width: 50%;
 	height: auto;
+	border: 5px solid #00b9f7;
+	border-radius: 100px;
+}
+header h1 {
+	text-align: center;
+	font-size: 40px;
+	vertical-align: middle;
+	border-radius: 25px;
+	height: 50px;
+	padding-bottom: 20px;
+	padding-top: 5px;
+	background: linear-gradient(to bottom right, #00b9f7, #1e7896);
+	margin-bottom: 20px;
 }
 header h2{
 	text-align: center;
@@ -98,4 +111,32 @@ footer {
 }
 .lyric-info{
 	font-size: 35px;
+}
+.event-info {
+	font-size: 20px;
+}
+footer a {
+	color: white;
+	margin: 0 10px;
+	font-weight:500;
+}
+@media only screen and (max-width: 640px) {
+	header h2 {
+		font-size: 20px;
+		padding-top: 35px;
+	}
+	header h1 {
+		font-size: 30px;
+		padding-top: 25px;
+	}
+	#search-area,
+	#lyric-area {
+		margin: 0;
+	}
+	#event-area {
+		margin-bottom: 0px;
+	}
+	.lyric-info {
+		font-size: 18px;
+	}
 }
