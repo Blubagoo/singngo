@@ -88,7 +88,7 @@ function renderEvents(item) {
 	console.log('trying to render event');
 	return `
 	<div class="events">
-	<img src="${item.images[6].url}" alt="${item.name}" name="${item.id}" align="center">
+	<a href="${item.url}" target="_blank"><img src="${item.images[0].url}" alt="${item.name}" name="${item.id}" align="center" class="images"></a>
 	<p class="event-info" align="center">${item.name}<br></p>
 	<p class="event-info" align="center">${item._embedded.venues[0].name}</p>
 	</div>`
