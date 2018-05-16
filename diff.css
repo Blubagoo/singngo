@@ -1,0 +1,101 @@
+body {
+	background-color: #242728;
+	color: white;
+	background-image: url("bg image b&w.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	
+	margin: 0;
+	font-family: 'PT Sans', sans-serif;
+}
+.sub-text {
+	padding-bottom: 20px;
+}
+.container {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+#search-area {
+	flex: 1;
+	border: 1px solid white;
+	text-align: center;
+}
+#lyric-area {
+	flex: 1;
+	border: 1px solid white;
+}
+#event-area {
+	flex: 1;
+	border: 1px solid white;
+	display: flex;
+	padding: 5px 10px;
+}
+.events{
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	padding: 5px 10px;
+}
+.images {
+	width: 100px;
+	height: auto;
+	display: inline-block;
+
+}
+.event-info {
+	overflow-wrap: break-word;
+}
+fieldset {
+	border: none;
+}
+header {
+	text-align: center;
+	background: linear-gradient(to bottom right, #00b9f7, #1e7896);
+	padding-top: 10px;
+	margin-bottom: 40px;
+}
+form {
+	display: inline-flex;
+}
+#artist,
+#title {
+	width: 300px;
+	font-size: 30px
+	padding-right: 20px
+	margin-top: 20px;
+	line-height: 25px;
+	font-size: 25px;
+	font-weight: 100;
+}
+#title {
+	margin-left: 6px;
+}
+
+footer {
+	text-align: center;
+	margin-top: 20px;
+}
+#search-button {
+	margin-left: 226px;
+	margin-top: 10px;
+	background: linear-gradient(to bottom right, #00b9f7, #1e7896);
+	border: none;
+	font-size: 24px;
+}	
+#search-form input {
+	margin-top: 10px;
+	border: none;
+}
+#search-form label {
+	margin-top: 40px		;
+	font-size: 24px;
+	font-weight: 0;
+}
+
+
+
+
+
+
+
