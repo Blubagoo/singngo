@@ -88,6 +88,7 @@ function renderEvents(item) {
 	console.log('trying to render event');
 	return `
 	<div class="events">
+
 	<a href="${item.url}" target="_blank"><img src="${item.images[0].url}" alt="${item.name}" name="${item.id}" class="images"></a>
 	<p class="event-info">${item.name}<br></p>
 	<p class="event-info">${item._embedded.venues[0].name}</p>
@@ -121,6 +122,7 @@ function displayLyrics(data, artist) {
 	console.log('displaying lyrics for', artist);
 	let example = data.lyrics;
 	let split_lyric = example.split(/\n/);
+
 	const lyrics = split_lyric.map((item, index) => renderLyrics(item,artist));
 	console.log(split_lyric);
 

@@ -6,7 +6,6 @@ body {
 	background-attachment: fixed;
 	padding: 0;
 	margin: 0;
-	
 }
 fieldset {
 	border: none;
@@ -48,10 +47,8 @@ form {
 	background-color: black;
 	opacity: 0.8;
 	flex: 1;
-
 	border: 2px solid #00b9f7;
 	height: 300px;
-
 }
 #search-area h3 {
 	font-size: 30px;
@@ -69,6 +66,7 @@ form {
 	background-color: black;
 	opacity: 0.8;
 	flex: 1;
+
 	text-align: center;
 	display; flex;
 	align-content: center;
@@ -101,12 +99,12 @@ footer {
 }
 footer a {
 	color: white;
-
 	font-weight:500;
 }
 @media only screen and (max-width: 640px) {
 	header h2 {
 		font-size: 20px;
+
 	}
 	header h1 {
 		font-size: 30px;
@@ -117,7 +115,9 @@ footer a {
 	}
 	#event-area {
 		margin-bottom: 0px;
+
 		display: flex;
+
 	}
 	.lyric-info {
 		font-size: 18px;
