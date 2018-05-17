@@ -3,32 +3,38 @@ function listenForSubmit() {
 	$('#search-form').submit('#search-button', function(e) {
 		e.preventDefault();
 		console.log('button squelched');
+		
 		let artist = $('#artist').val();
-		$('#artist').val('');
 		let title = $('#title').val();
+		
+		$('#artist').val('');
 		$('#title').val('');
+
 		console.log('got values', artist,",", title);
 		getLyrics(artist, title);
 		getArtist(artist);
 
 		});
 }
+
+var apiConfigG = {
+				  dataType: "JSON",
+				  method: "GET",
+				  error: () =>
+					console.log(arguments)
+			 	  };
+
+
 //send lyric api data
 function getLyrics(artist, title) {
 	const settings = {
 		url:"https://api.lyrics.ovh/v1/"+artist+"/"+title,
-		dataType: "JSON",
-		method: "GET",
-		success: function(data) {
-			console.log("success", data);
-			displayLyrics(data, artist);
-
-		},
-		error: function() {
-			console.log(arguments);
+		success: data => 
+						(console.log("success", data),
+						displayLyrics(data))
 		}
-	}
-	$.ajax(settings);
+	var configApi = Object.assign({}, apiConfigG, settings);
+	$.ajax(configApi);
 }
 //send tm event api data
 function getArtist(artist) {
@@ -91,7 +97,7 @@ function renderEvents(item) {
 
 	<a href="${item.url}" target="_blank"><img src="${item.images[0].url}" alt="${item.name}" name="${item.id}" class="images"></a>
 	<p class="event-info">${item.name}<br></p>
-	<p class="event-info">${item._embedded.venues[0].name}</p>
+	<p class="event-info">${item._embedded.venues[0].city.name},<br>${item._embedded.venues[0].country.name}</p>
 	</div>`
 }
 function noEvents() {
@@ -113,24 +119,21 @@ function displayEvents(data) {
 		const noEvent = noEvents();
 		$('#event-area').html(noEvent);
 	} else {
-		const event = data._embedded.events.map((item,index) => renderEvents(item, artist))
+		const event = data._embedded.events.map(item=> renderEvents(item))
 		$('#event-area').html(event)
 	};
 	
 }
 function displayLyrics(data, artist) {
 	console.log('displaying lyrics for', artist);
-	let example = data.lyrics;
-	let split_lyric = example.split(/\n/);
-
-	const lyrics = split_lyric.map((item, index) => renderLyrics(item,artist));
-	console.log(split_lyric);
+	let splitLyric 	 = data.lyrics.split(/\n/).map(item => renderLyrics(item));
+	console.log(splitLyric);
 
 
 	
 	$('#lyric-area').html(renderHeader(artist));
 	const lyric = data.lyrics;
-	$('#lyric-area').html(lyrics);
+	$('#lyric-area').html(splitLyric);
 	console.log(lyric);
 
 }

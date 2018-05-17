@@ -1,9 +1,9 @@
 body {
 	background-color: #242728;
 	color: white;
-	background-image: url("bg image b&w.jpg");
-	background-repeat: no-repeat;
-	background-attachment: fixed;
+	background-image: url("http://www.photos-public-domain.com/wp-content/uploads/2011/02/black-painted-brick-wall-texture.jpg");
+	
+	
 	
 	margin: 0;
 	font-family: 'PT Sans', sans-serif;
@@ -18,21 +18,29 @@ body {
 }
 #search-area {
 	flex: 1;
-	border: 1px solid white;
 	text-align: center;
+	padding-bottom: 20px;
 }
-#lyric-area {
+#lyric-bg{
+	width: 95%;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #3A3A3A;
+	opacity: 0.7;
+	padding-bottom: 20px;
+	margin-bottom: 20px	;
+}
+#lyric-area { 	
 	justify-content: center;
 	flex: 1;
-	border: 1px solid white;
-	height: 600px;
+	height: 580px;
 	overflow-y: scroll;
 	text-align: center;
 	font-size: 20px;
+	padding-bottom: 20px;
+
 }
 #event-area {
-	flex: 1;
-	border: 1px solid white;
 	padding: 5px 10px;
 	display: inline-flex;
 	flex-wrap: wrap;
@@ -53,9 +61,6 @@ body {
 	display: inline-block;
 
 }
-.event-info {
-	overflow-wrap: break-word;
-}
 fieldset {
 	border: none;
 }
@@ -67,6 +72,9 @@ header {
 }
 form {
 	display: inline-flex;
+	background-color: #3A3A3A;
+	background-blend-mode: overlay;
+	padding: 0 25px 15px 20px;
 }
 #artist,
 #title {
