@@ -22,20 +22,30 @@ body {
 	text-align: center;
 }
 #lyric-area {
+	justify-content: center;
 	flex: 1;
 	border: 1px solid white;
+	height: 600px;
+	overflow-y: scroll;
+	text-align: center;
+	font-size: 20px;
 }
 #event-area {
 	flex: 1;
 	border: 1px solid white;
-	display: flex;
 	padding: 5px 10px;
+	display: inline-flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
 }
 .events{
 	text-align: center;
 	display: flex;
 	flex-direction: column;
 	padding: 5px 10px;
+	width: 150px;
+	overflow: hidden;
+
 }
 .images {
 	width: 100px;
@@ -69,7 +79,7 @@ form {
 	font-weight: 100;
 }
 #title {
-	margin-left: 6px;
+	margin-left: 8px;
 }
 
 footer {
@@ -77,7 +87,7 @@ footer {
 	margin-top: 20px;
 }
 #search-button {
-	margin-left: 226px;
+	margin-left: 222px;
 	margin-top: 10px;
 	background: linear-gradient(to bottom right, #00b9f7, #1e7896);
 	border: none;
@@ -92,7 +102,9 @@ footer {
 	font-size: 24px;
 	font-weight: 0;
 }
-
+#event-info {
+	overflow-x: hidden;
+}
 
 
 
