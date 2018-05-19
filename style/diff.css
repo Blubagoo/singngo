@@ -1,10 +1,7 @@
 body {
 	background-color: #242728;
 	color: white;
-	background-image: url("http://www.photos-public-domain.com/wp-content/uploads/2011/02/black-painted-brick-wall-texture.jpg");
-	
-	
-	
+	background-image: url("http://www.photos-public-domain.com/wp-content/uploads/2011/02/black-painted-brick-wall-texture.jpg");	
 	margin: 0;
 	font-family: 'PT Sans', sans-serif;
 }
@@ -47,11 +44,12 @@ body {
 	padding: 5px 10px;
 	display: inline-flex;
 	flex-wrap: wrap;
-	justify-content: space-around;
+	justify-content: space-around;	
 }
 #event-bg {
 	background: linear-gradient(to bottom right, #00b9f7, #1e7896);
-	opacity: 0.5
+	opacity: 0.8;
+	text-align: center;
 }
 .events{
 	text-align: center;
@@ -62,20 +60,16 @@ body {
 	overflow: hidden;
 	color: black;
 	font-weight: 700;
-
-
-
 }
 .images {
 	width: 100px;
 	height: auto;
 	display: inline-block;
-
 }
 fieldset {
 	border: none;
 }
-header {
+.banner {
 	text-align: center;
 	background: linear-gradient(to bottom right, #00b9f7, #1e7896);
 	padding-top: 10px;
@@ -100,7 +94,6 @@ form {
 #title {
 	margin-left: 8px;
 }
-
 footer {
 	text-align: center;
 	margin-top: 20px;
@@ -126,7 +119,10 @@ footer {
 	overflow-x: hidden;
 
 }
-
+.title-area {
+	text-align: center;
+	align-content: center;
+}
 @media only screen and (max-width: 640px){
 
 	#lyric-area {
