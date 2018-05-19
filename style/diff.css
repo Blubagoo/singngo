@@ -22,7 +22,7 @@ body {
 	padding-bottom: 20px;
 }
 #lyric-bg{
-	width: 95%;
+	
 	margin-left: auto;
 	margin-right: auto;
 	background-color: #3A3A3A;
@@ -33,11 +33,14 @@ body {
 #lyric-area { 	
 	justify-content: center;
 	flex: 1;
-	height: 580px;
+	height: 380px;
 	overflow-y: scroll;
 	text-align: center;
 	font-size: 20px;
 	padding-bottom: 20px;
+	margin-left: auto;
+	margin-right: auto;
+
 
 }
 #event-area {
@@ -46,6 +49,10 @@ body {
 	flex-wrap: wrap;
 	justify-content: space-around;
 }
+#event-bg {
+	background: linear-gradient(to bottom right, #00b9f7, #1e7896);
+	opacity: 0.5
+}
 .events{
 	text-align: center;
 	display: flex;
@@ -53,6 +60,10 @@ body {
 	padding: 5px 10px;
 	width: 150px;
 	overflow: hidden;
+	color: black;
+	font-weight: 700;
+
+
 
 }
 .images {
@@ -78,7 +89,7 @@ form {
 }
 #artist,
 #title {
-	width: 300px;
+	width: 80%;
 	font-size: 30px
 	padding-right: 20px
 	margin-top: 20px;
@@ -104,6 +115,7 @@ footer {
 #search-form input {
 	margin-top: 10px;
 	border: none;
+	text-align: center;
 }
 #search-form label {
 	margin-top: 40px		;
@@ -112,8 +124,40 @@ footer {
 }
 #event-info {
 	overflow-x: hidden;
+
 }
 
+@media only screen and (max-width: 640px){
+
+	#lyric-area {
+		margin-left: 20px;
+	}
+	#search-button {
+		margin-left: auto;
+		margin-right: auto;
+		font-size: 16px;
+
+	}
+	.images {
+		width: 70px;
+		
+	}
+	.events {
+		width: 70px;
+		padding-right: 10px;
+	}
+	#search-form input {
+		font-size: 18px;
+	}
+	#title {
+		margin-right: 8px;
+	}
+	#event-info {
+
+	}
+
+
+}
 
 
 

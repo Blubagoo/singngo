@@ -28,87 +28,50 @@ var apiConfigG = {
 //send lyric api data
 function getLyrics(artist, title) {
 	const settings = {
-		url:"https://api.lyrics.ovh/v1/"+artist+"/"+title,
-		success: data => 
+						url:"https://api.lyrics.ovh/v1/"+artist+"/"+title,
+						success: data => 
 						(console.log("success", data),
-						displayLyrics(data))
-		}
+						displayLyrics(data, artist, title))
+					  };
+
 	var configApi = Object.assign({}, apiConfigG, settings);
 	$.ajax(configApi);
 }
 //send tm event api data
 function getArtist(artist) {
 	const settings = {
-		url: "https://app.ticketmaster.com/discovery/v2/attractions",
-		data: {
-			keyword: artist,
-			apikey: "foT0mqx1A21ZxgjogM48Svp5vNF7gbgy"
-		},
-		async: true,
-		dataType: "JSON",
-		method:"GET",
-		success: function (data) {
-			console.log("success", data);
-			sendArtist(data);
-		},
-		error: function() {
-			console.log(arguments);
-		}
-	};
-	$.ajax(settings)
+						url: "https://app.ticketmaster.com/discovery/v2/attractions",
+						data: {
+								keyword: artist,
+								apikey: "foT0mqx1A21ZxgjogM48Svp5vNF7gbgy"
+					  		  },
+						async: true,
+						success: data => (console.log("success", data),
+										  redirectToApi(data))
+					  };
+
+	var configApi = Object.assign({}, apiConfigG, settings);
+	$.ajax(configApi);
 }
 function getEvents(artist) {
 	const settings = {
-		url: "https://app.ticketmaster.com/discovery/v2/events",
-		data: {
-			attractionId: artist,
-			apikey: "foT0mqx1A21ZxgjogM48Svp5vNF7gbgy"
-		},
-		async: true,
-		dataType: "JSON",
-		method:"GET",
-		success: function (data) {
-			console.log("success", data);
-		displayEvents(data);
-		},
-		error: function() {
-			console.log(arguments);
-		}
-	};
-	$.ajax(settings)
-}
-//render lyrics
-function renderLyrics(item, artist) {
-	return `
-	<p class="lyric-info">${item}</p>`
-}
-function renderHeader(artist) {
-	console.log('rendering header');
-	return `
-		<div class="lyrics">
-		<h2 class="artist">${artist}</h2>
-		</div>`
-}
-//render events
-function renderEvents(item) {
-	console.log('trying to render event');
-	return `
-	<div class="events">
+						url: "https://app.ticketmaster.com/discovery/v2/events",
+						data: {
+								attractionId: artist,
+								apikey: "foT0mqx1A21ZxgjogM48Svp5vNF7gbgy"
+							   },
+						async: true,
+						success: data => (console.log("success", data),
+						    displayEvents(data))
+					 };
 
-	<a href="${item.url}" target="_blank"><img src="${item.images[0].url}" alt="${item.name}" name="${item.id}" class="images"></a>
-	<p class="event-info">${item.name}<br></p>
-	<p class="event-info">${item._embedded.venues[0].city.name},<br>${item._embedded.venues[0].country.name}</p>
-	</div>`
+	var configApi = Object.assign({}, apiConfigG, settings);
+	
+	$.ajax(configApi);
 }
-function noEvents() {
-	console.log('no events')
-	return `
-	<div class="events">
-	<h2 class="no-info">There are no available events through Ticket Master</h2>
-	</div>`
-}
+
 //display lyrics and events
-function sendArtist(data) {
+function redirectToApi(data) {
 	console.log('got artist now grabbing events');
 	const artist = data._embedded.attractions[0].id;
 	getEvents(artist);
@@ -119,25 +82,26 @@ function displayEvents(data) {
 		const noEvent = noEvents();
 		$('#event-area').html(noEvent);
 	} else {
-		const event = data._embedded.events.map(item=> renderEvents(item))
+		const event = data._embedded.events.map(item=>  `<div class="events">
+														<a href="${item.url}" target="_blank"><img src="${item.images[0].url}" alt="${item.name}" name="${item.id}" class="images"></a>
+														<p class="event-info">${item.name}<br></p>
+														<p class="event-info">${item._embedded.venues[0].city.name},<br>${item._embedded.venues[0].country.name}</p>
+														</div>`)
 		$('#event-area').html(event)
-	};
-	
+	};	
 }
-function displayLyrics(data, artist) {
+
+function displayLyrics(data, artist, title) {
 	console.log('displaying lyrics for', artist);
-	let splitLyric 	 = data.lyrics.split(/\n/).map(item => renderLyrics(item));
+	let splitLyric 	 = data.lyrics.split(/\n/).map(item => `<p class="lyric-info">${item}</p>`);
 	console.log(splitLyric);
 
-
+	var header = `<div class="lyrics">
+				<h2 class="artist">${artist} - ${title} </h2>
+				</div>`;
 	
-	$('#lyric-area').html(renderHeader(artist));
-	const lyric = data.lyrics;
-	$('#lyric-area').html(splitLyric);
-	console.log(lyric);
+	$('#lyric-area').html(header)
+	$('#lyric-area').append(splitLyric);
+}
 
-}
-function loadCallbacks() {
-	listenForSubmit();
-}
-$(loadCallbacks)
+$(listenForSubmit)
