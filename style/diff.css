@@ -52,7 +52,6 @@ body {
 .banner h1 {
 	margin: 0 0 60px 0 ;
 	font-weight: 500;
-	
 }
 /*OVERLAY*/
 .text-div {
@@ -95,12 +94,12 @@ fieldset {
 	font-size: 36px;
 }
 form {
-	display: inline-flex;
+	display: inline-block
 	padding: 0 25px 15px 20px;
 }
 #artist,
 #title {
-	width: 80%;
+	width: 250px;
 	font-size: 30px
 	padding-right: 20px
 	margin-top: 20px;
@@ -111,7 +110,7 @@ form {
 
 footer {
 	text-align: center;
-	margin-top: 20px;
+	margin-top: 400px;
 	color: white;
 }
 #search-button {
@@ -119,7 +118,7 @@ footer {
 	background: linear-gradient(to bottom right, #00b9f7, #1e7896);
 	border: none;
 	font-size: 24px;
-	width: 80%;
+	width: 261px;
 }
 #search-form {
 	margin-top: 60px;
@@ -152,10 +151,20 @@ footer {
 	#lyric-area {
 		margin-left: 20px;
 	}
+	footer {
+		margin-top: 300px;
+	}
+	#banner {
+		font-size: 34px;
+	}
+	.text-div h2 {
+		font-size: 20px;
+		line-height: 30px
+	}
 	#search-button {
 		margin-left: auto;
 		margin-right: auto;
-		font-size: 16px;
+		font-size: 22px;
 	}
 	.images {
 		width: 70px;	
@@ -166,9 +175,6 @@ footer {
 	}
 	#search-form input {
 		font-size: 18px;
-	}
-	#title {
-		margin-right: 8px;
 	}
 	.title-area {
 		font-size: 20px;

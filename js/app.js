@@ -1,4 +1,4 @@
-//listen for form submit
+  	//listen for form submit
 function listenForSubmit() {
 	$('#search-form').submit('#search-button', function(e) {
 		e.preventDefault();
