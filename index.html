@@ -10,24 +10,24 @@
 	<script
   		src="https://code.jquery.com/jquery-3.3.1.min.js"
   		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  		crossorigin="anonymous"></script>
+  		crossorigin="anonymous"></script>x
 </head>
 <body>
 	<header class="banner" role="banner">
 		<h1 id="banner">Welcome to Sing-n-Go!</h1>
-		<p class="sub-text">Search an artist's name to begin.</p>
 	</header>
 	<main role="main">
 		<div id="container">
 			<div id="search-area">
-				<h2>Thanks for checking out Sing 'n Go! Enter in your favorite artist's song. We will grab your lyrics while you jam on your phone and tell you when the next shows are!</h3>
+				<div class="text-div">
+					<h2>Thanks for checking out Sing 'n Go! Enter in your favorite artist's song. We will grab your lyrics while you jam on your phone and tell you 
+					when the next shows are!</h2>
+				</div>
 				<form role="form" id="search-form">
 					<fieldset>
 						<legend id="legend" hidden>Search Request</legend><br>
-							<label for="artist">Artist</label>
-							<input type="text" id="artist" placeholder="Queens of the Stone Age" name="artist" required><br>
-							<label for="title">Title</label>
-							<input type="text" id="title" placeholder="No One Knows" name="title" required><br>
+							<input type="text" id="artist" placeholder="Artist" name="artist" required><br>
+							<input type="text" id="title" placeholder="Song title" name="title" required><br>
 							<button type="submit" id="search-button">Let's Begin!</button>
 						</legend>
 					</fieldset>
@@ -35,20 +35,20 @@
 			</div>
 
 
-			<div id="lyric-bg">
-				<header>
+			<div id="lyric-bg" hidden>
+					<header>
 						<h3 class="title-area">Lyrics for your song!</h3>
-				</header>
+					</header>
+
 				<div id="lyric-area" aria-live="polite">
-					
-					
+										
 				</div>
 			</div>
 
 
-				<div id="event-bg">
+				<div id="event-bg" hidden>
 					<header>
-							<h3 align="center" class="title-area">The next shows coming up for your artist!</h3>
+						<h3 align="center" class="title-area">The next shows coming up for your artist!</h3>
 					</header>
 					<div id="event-area" aria-live="polite">
 						

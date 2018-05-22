@@ -13,7 +13,9 @@ function listenForSubmit() {
 		console.log('got values', artist,",", title);
 		getLyrics(artist, title);
 		getArtist(artist);
-
+		
+		$('#lyric-bg').toggle(800, "swing");
+		$('#event-bg').toggle(800, "swing");
 		});
 }
 
@@ -87,7 +89,7 @@ function displayEvents(data) {
 														<p class="event-info">${item.name}<br></p>
 														<p class="event-info">${item._embedded.venues[0].city.name},<br>${item._embedded.venues[0].country.name}</p>
 														</div>`)
-		$('#event-area').html(event)
+		$('#event-area').append(event)
 	};	
 }
 
@@ -100,7 +102,7 @@ function displayLyrics(data, artist, title) {
 				<h2 class="artist">${artist} - ${title} </h2>
 				</div>`;
 	
-	$('#lyric-area').html(header)
+	$('#lyric-area').append(header)
 	$('#lyric-area').append(splitLyric);
 }
 
