@@ -10,12 +10,13 @@ function listenForSubmit() {
 		$('#artist').val('');
 		$('#title').val('');
 
+
 		console.log('got values', artist,",", title);
 		getLyrics(artist, title);
 		getArtist(artist);
 		
-		$('#lyric-bg').toggle(800, "swing");
-		$('#event-bg').toggle(800, "swing");
+		$('#lyric-bg').show(800, "swing");
+		$('#event-bg').show(800, "swing");
 		});
 }
 
@@ -85,11 +86,12 @@ function displayEvents(data) {
 		$('#event-area').html(noEvent);
 	} else {
 		const event = data._embedded.events.map(item=>  `<div class="events">
+														<p class="date">${item.dates.start.localDate}</p>
 														<a href="${item.url}" target="_blank"><img src="${item.images[0].url}" alt="${item.name}" name="${item.id}" class="images"></a>
-														<p class="event-info">${item.name}<br></p>
-														<p class="event-info">${item._embedded.venues[0].city.name},<br>${item._embedded.venues[0].country.name}</p>
+														<p class="event-name"><b>${item.name}</b><br></p>
+														<p class="event-info">${item._embedded.venues[0].city.name}, ${item._embedded.venues[0].country.name}</p>
 														</div>`)
-		$('#event-area').append(event)
+		$('#event-area').html(event)
 	};	
 }
 
@@ -99,11 +101,13 @@ function displayLyrics(data, artist, title) {
 	console.log(splitLyric);
 
 	var header = `<div class="lyrics">
-				<h2 class="artist">${artist} - ${title} </h2>
+				<h2 class="artist-header">Lyrics for ${artist}!</h2>
+				<div id="lyric-area">
+				</div>
 				</div>`;
-	
-	$('#lyric-area').append(header)
-	$('#lyric-area').append(splitLyric);
+	console.log("");
+	$('#lyric-bg').html(header)
+	$('#lyric-area').html(splitLyric);
 }
 
 $(listenForSubmit)

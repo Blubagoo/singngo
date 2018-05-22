@@ -29,10 +29,9 @@ body {
 
 }
 #lyric-bg{
-	background-color: silver;
 	margin-left: auto;
 	margin-right: auto;
-	color: black;
+	color: white;
 	
 }
 .text-div h2 {
@@ -47,11 +46,12 @@ body {
 	padding-bottom: 20px;
 	margin-left: auto;
 	margin-right: auto;
-	color: black;
+	color: white;
 }
 .banner h1 {
-	margin: 0 0 60px 0 ;
+	margin: 30px 0 60px 0 ;
 	font-weight: 500;
+
 }
 /*OVERLAY*/
 .text-div {
@@ -60,28 +60,33 @@ body {
 }
 #event-area {
 	padding: 5px 10px;
-	display: inline-flex;
+	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;	
 }
 #event-bg {
-	background: linear-gradient(to bottom right, #00b9f7, #1e7896);
 	text-align: center;
+	padding-bottom: 30px;
 }
 .events{
 	text-align: center;
 	display: flex;
 	flex-direction: column;
 	padding: 5px 10px;
-	width: 150px;
+	width: 280px;
 	overflow: hidden;
 	color: black;
-	font-weight: 700;
+	font-weight: 400;
+	background-color: white;
+	margin: 10px 10px;
+	box-shadow: 5px 6px 10px #6c6c6d;
+	border-radius: 3px;
 }
 .images {
-	width: 100px;
-	height: auto;
+	width: 250px;
+	height: 200px;
 	display: inline-block;
+	border-radius: 3px;
 }
 fieldset {
 	border: none;
@@ -107,7 +112,9 @@ form {
 	font-size: 25px;
 	font-weight: 100;
 }
-
+.lyrics {
+	text-align: center;
+}
 footer {
 	text-align: center;
 	margin-top: 400px;
@@ -145,11 +152,28 @@ footer {
 	font-size: 40px;
 	text-transform: uppercase;
 	font-weight: 100;
+	margin-top: 200px;
+}
+.date {
+	font-style: italic;
+	text-align: left;
+	font-size: 18px;
+	font-weight: 300;
+}
+.event-name {
+	font-size: 26px;
+}
+.artist-header {
+	text-transform: uppercase;
 }
 @media only screen and (max-width: 640px){
 
 	#lyric-area {
 		margin-left: 20px;
+		font-size: 20px;
+	}
+	.artist-header {
+		font-size: 30px;
 	}
 	footer {
 		margin-top: 300px;
@@ -166,12 +190,12 @@ footer {
 		margin-right: auto;
 		font-size: 22px;
 	}
-	.images {
-		width: 70px;	
-	}
 	.events {
-		width: 70px;
+		width:	250px;
 		padding-right: 10px;
+	}
+	#event-area {
+		display:;
 	}
 	#search-form input {
 		font-size: 18px;
@@ -180,6 +204,16 @@ footer {
 		font-size: 20px;
 		padding-top: 5px;
 		font-weight: 300;
+	}
+	#lyric-bg {
+		background-color: black;
+	}
+	#event-bg {
+		font-size: 20px;
+		font-style: bold;
+	}
+	#event-area {
+
 	}
 
 
