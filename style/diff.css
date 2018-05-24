@@ -29,11 +29,8 @@ body {
 
 }
 #lyric-bg{
-	background-color: silver;
 	margin-left: auto;
-	margin-right: auto;
-	color: black;
-	
+	margin-right: auto;	
 }
 .text-div h2 {
     line-height: 42px;
@@ -47,7 +44,7 @@ body {
 	padding-bottom: 20px;
 	margin-left: auto;
 	margin-right: auto;
-	color: black;
+	color: white;
 }
 .banner h1 {
 	margin: 0 0 60px 0 ;
@@ -65,7 +62,6 @@ body {
 	justify-content: space-around;	
 }
 #event-bg {
-	background: linear-gradient(to bottom right, #00b9f7, #1e7896);
 	text-align: center;
 }
 .events{
@@ -73,14 +69,17 @@ body {
 	display: flex;
 	flex-direction: column;
 	padding: 5px 10px;
-	width: 150px;
+	margin: 20px 5px;
+	width: 300px;
 	overflow: hidden;
 	color: black;
 	font-weight: 700;
+	box-shadow: 5px 10px 15px #6C6C6C;
+	background-color: white;
 }
 .images {
-	width: 100px;
-	height: auto;
+	width: 250px;
+	height: 200px;
 	display: inline-block;
 }
 fieldset {
@@ -109,8 +108,10 @@ form {
 }
 
 footer {
-	text-align: center;
-	margin-top: 400px;
+	text-align: right;
+	position: fixed;
+	bottom: 0;
+	right: 0;
 	color: white;
 }
 #search-button {
@@ -145,6 +146,13 @@ footer {
 	font-size: 40px;
 	text-transform: uppercase;
 	font-weight: 100;
+}
+.artist-name,
+.title-name {
+	text-transform: uppercase;
+}
+.date {
+	font-style: 20px;
 }
 @media only screen and (max-width: 640px){
 

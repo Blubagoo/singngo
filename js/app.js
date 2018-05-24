@@ -1,24 +1,3 @@
-  	//listen for form submit
-function listenForSubmit() {
-	$('#search-form').submit('#search-button', function(e) {
-		e.preventDefault();
-		console.log('button squelched');
-		
-		let artist = $('#artist').val();
-		let title = $('#title').val();
-		
-		$('#artist').val('');
-		$('#title').val('');
-
-		console.log('got values', artist,",", title);
-		getLyrics(artist, title);
-		getArtist(artist);
-		
-		$('#lyric-bg').toggle(800, "swing");
-		$('#event-bg').toggle(800, "swing");
-		});
-}
-
 var apiConfigG = {
 				  dataType: "JSON",
 				  method: "GET",
@@ -26,20 +5,40 @@ var apiConfigG = {
 					console.log(arguments)
 			 	  };
 
+//listen for form submit, taking values and running function to send api calls
+function listenForSubmit() {
+	$('#search-form').submit('#search-button', function(e) {
+		
+		e.preventDefault();
+				
+		let artist = $('#artist').val();
+		let title = $('#title').val();
+		
+		$('#artist').val('');
+		$('#title').val('');
+
+		getLyrics(artist, title);
+		getArtist(artist);
+		
+		$('#lyric-bg').show(800, "swing");
+		$('#event-bg').show(800, "swing");
+		});
+}
+
+
 
 //send lyric api data
 function getLyrics(artist, title) {
 	const settings = {
 						url:"https://api.lyrics.ovh/v1/"+artist+"/"+title,
 						success: data => 
-						(console.log("success", data),
-						displayLyrics(data, artist, title))
+						displayLyrics(data, artist, title)
 					  };
 
 	var configApi = Object.assign({}, apiConfigG, settings);
 	$.ajax(configApi);
 }
-//send tm event api data
+//call to api with artist search, redirecting back the artist id
 function getArtist(artist) {
 	const settings = {
 						url: "https://app.ticketmaster.com/discovery/v2/attractions",
@@ -55,11 +54,17 @@ function getArtist(artist) {
 	var configApi = Object.assign({}, apiConfigG, settings);
 	$.ajax(configApi);
 }
-function getEvents(artist) {
+//artist id collected and response made
+function redirectToApi(data) {
+	const artistId = data._embedded.attractions[0].id;
+	getEvents(artistId);
+}
+//api call with artist id to ticketmaster
+function getEvents(artistId) {
 	const settings = {
 						url: "https://app.ticketmaster.com/discovery/v2/events",
 						data: {
-								attractionId: artist,
+								attractionId: artistId,
 								apikey: "foT0mqx1A21ZxgjogM48Svp5vNF7gbgy"
 							   },
 						async: true,
@@ -71,15 +76,8 @@ function getEvents(artist) {
 	
 	$.ajax(configApi);
 }
-
-//display lyrics and events
-function redirectToApi(data) {
-	console.log('got artist now grabbing events');
-	const artist = data._embedded.attractions[0].id;
-	getEvents(artist);
-}
+//display events for artist
 function displayEvents(data) {
-	console.log('displaying data');
 	if(data.page.totalElements === 0) {
 		const noEvent = noEvents();
 		$('#event-area').html(noEvent);
@@ -92,18 +90,19 @@ function displayEvents(data) {
 		$('#event-area').append(event)
 	};	
 }
-
+//parse the lyrics from api
 function displayLyrics(data, artist, title) {
-	console.log('displaying lyrics for', artist);
 	let splitLyric 	 = data.lyrics.split(/\n/).map(item => `<p class="lyric-info">${item}</p>`);
-	console.log(splitLyric);
-
+	//create header for artist
 	var header = `<div class="lyrics">
-				<h2 class="artist">${artist} - ${title} </h2>
+				<h2 class="artist-name">Lyrics for ${artist}!</h2>
+				<h3 class="title-name">${title}
+				<div id="lyric-area">
+				</div>
 				</div>`;
 	
-	$('#lyric-area').append(header)
-	$('#lyric-area').append(splitLyric);
+	$('#lyric-bg').html(header)
+	$('#lyric-area').html(splitLyric);
 }
 
 $(listenForSubmit)
