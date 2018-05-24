@@ -85,7 +85,7 @@ function displayEvents(data) {
 		const event = data._embedded.events.map(item=>  `<div class="events">
 														<p class="date">${item.dates.start.localDate}</p>
 														<a href="${item.url}" target="_blank"><img src="${item.images[0].url}" alt="${item.name}" name="${item.id}" class="images"></a>
-														<p class="event-info">${item.name}<br></p>
+														<p class="event-info"><b>${item.name}</b><br></p>
 														<p class="event-info">${item._embedded.venues[0].city.name},<br>${item._embedded.venues[0].country.name}</p>
 														</div>`)
 		$('#event-area').append(event)
