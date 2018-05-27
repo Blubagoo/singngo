@@ -30,9 +30,8 @@ function listenForSubmit() {
 //send lyric api data
 function getLyrics(artist, title) {
 	const settings = {
-						url:"https://api.lyrics.ovh/v1/"+artist+"/"+title,
-						success: data => 
-						displayLyrics(data, artist, title)
+						url:`https://api.lyrics.ovh/v1/${artist}/${title}`,
+						success: data => displayLyrics(data, artist, title)
 					  };
 
 	var configApi = Object.assign({}, apiConfigG, settings);
@@ -47,8 +46,7 @@ function getArtist(artist) {
 								apikey: "foT0mqx1A21ZxgjogM48Svp5vNF7gbgy"
 					  		  },
 						async: true,
-						success: data => (console.log("success", data),
-										  redirectToApi(data))
+						success: data => redirectToApi(data)
 					  };
 
 	var configApi = Object.assign({}, apiConfigG, settings);
@@ -68,8 +66,7 @@ function getEvents(artistId) {
 								apikey: "foT0mqx1A21ZxgjogM48Svp5vNF7gbgy"
 							   },
 						async: true,
-						success: data => (console.log("success", data),
-						    displayEvents(data))
+						success: data => displayEvents(data)
 					 };
 
 	var configApi = Object.assign({}, apiConfigG, settings);
@@ -80,7 +77,7 @@ function getEvents(artistId) {
 function displayEvents(data) {
 	if(data.page.totalElements === 0) {
 		const noEvent = noEvents();
-		$('#event-area').html(noEvent);
+		$('#event-area').append(noEvent);
 	} else {
 		const event = data._embedded.events.map(item=>  `<div class="events">
 														<p class="date">${item.dates.start.localDate}</p>
