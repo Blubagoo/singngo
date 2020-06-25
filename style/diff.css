@@ -26,6 +26,7 @@ body {
 	padding-bottom: 20px;
 	height: 100%;
 	min-height: 100%;
+	margin-top: 70px;
 
 }
 #lyric-bg{
@@ -33,8 +34,12 @@ body {
 	margin-right: auto;
 	color: white;
 }
+.text-div {
+	width: 35%;
+	margin: auto;
+}
 .text-div h2 {
-    line-height: 42px;
+	line-height: 42px;
 }
 #lyric-area { 	
 	justify-content: center;
@@ -48,14 +53,10 @@ body {
 	color: white;
 }
 .banner h1 {
-	margin: 30px 0 60px 0 ;
+	margin: 100px 0 20px 0 ;
 	font-weight: 500;
+	font-size: 50px;
 
-}
-/*OVERLAY*/
-.text-div {
-	width: 55%;
-	margin: auto;
 }
 #event-area {
 	padding: 5px 10px;
@@ -127,6 +128,8 @@ footer {
 	border: none;
 	font-size: 24px;
 	width: 261px;
+	padding: 10px 40px;
+	color: white;
 }
 #search-form {
 	margin-top: 60px;
@@ -144,7 +147,6 @@ footer {
 }
 #event-info {
 	overflow-x: hidden;
-
 }
 .title-area {
 	text-align: center;
